@@ -22,28 +22,18 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="index.html">
+                <a className="nav-link" href="/">
                   Home
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="about.html">
                   About
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item">
-                <a className="nav-link" href="icecream.html">
-                  Icecream
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="services.html">
-                  Services
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="blog.html">
-                  Blog
+                <a className="nav-link" href="/products">
+                  Products
                 </a>
               </li>
               <li className="nav-item">
@@ -52,7 +42,7 @@ function Header() {
                 </a>
               </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
+            {/* <form className="form-inline my-2 my-lg-0">
               <div className="login_bt">
                 <a href="#">
                   Login{" "}
@@ -62,7 +52,7 @@ function Header() {
                 </a>
               </div>
               <div className="fa fa-search form-control-feedback"></div>
-            </form>
+            </form> */}
           </div>
         </nav>
       </div>

@@ -1,105 +1,19 @@
 import React from "react";
-
-const slides = [
-  {
-    id: 1,
-    img: "/images/banner-img.png",
-    title: "Ice Cream",
-    text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
-  },
-  {
-    id: 2,
-    img: "/images/banner-img.png",
-    title: "Ice Cream",
-    text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
-  },
-  {
-    id: 3,
-    img: "/images/banner-img.png",
-    title: "Ice Cream",
-    text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
-  },
-  {
-    id: 4,
-    img: "/images/banner-img.png",
-    title: "Ice Cream",
-    text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem",
-  },
-];
-
-const testimonials = [
-  {
-    text: "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-    name: "Marri Fen",
-    image: "images/client-img.png",
-  },
-  {
-    text: "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-    name: "Marri Fen",
-    image: "images/client-img.png",
-  },
-  {
-    text: "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint",
-    name: "Marri Fen",
-    image: "images/client-img.png",
-  },
-];
-
-const services = [
-  {
-    title: "Cookies Ice Cream",
-    description:
-      "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fat",
-    icon: "images/icon-1.png",
-  },
-  {
-    title: "Cookies Ice Cream",
-    description:
-      "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fat",
-    icon: "images/icon-2.png",
-  },
-  {
-    title: "Cookies Ice Cream",
-    description:
-      "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fat",
-    icon: "images/icon-1.png",
-  },
-];
-
-const featuredIceCreams = [
-  {
-    image: "images/img-1.png",
-    price: "$10",
-    name: "Strawberry Ice Cream",
-  },
-  {
-    image: "images/img-2.png",
-    price: "$10",
-    name: "Strawberry Ice Cream",
-  },
-  {
-    image: "images/img-1.png",
-    price: "$10",
-    name: "Strawberry Ice Cream",
-  },
-  {
-    image: "images/img-3.png",
-    price: "$10",
-    name: "Strawberry Ice Cream",
-  },
-  {
-    image: "images/img-4.png",
-    price: "$10",
-    name: "Strawberry Ice Cream",
-  },
-  {
-    image: "images/img-5.png",
-    price: "$10",
-    name: "Strawberry Ice Cream",
-  },
-];
+import {
+  featuredIceCreams,
+  services,
+  slides,
+  testimonials,
+} from "../../sample/Data";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const saveDataInLocalStorage = (product) => {
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+    navigate("/checkout");
+  };
   return (
     <div>
       {/* Header Section */}
@@ -202,7 +116,7 @@ function Home() {
           <div className="cream_section_2">
             <div className="row">
               {featuredIceCreams.map((iceCream, index) => (
-                <div className="col-12 col-sm-6 col-md-4" key={index}>
+                <div className="col-12 col-sm-6 col-sm-4" key={index}>
                   <div className="cream_box">
                     <div className="cream_img">
                       <img
@@ -214,7 +128,12 @@ function Home() {
                     <div className="price_text">{iceCream.price}</div>
                     <h6 className="strawberry_text">{iceCream.name}</h6>
                     <div className="cart_bt">
-                      <a href="#">Add To Cart</a>
+                      <button
+                        onClick={() => saveDataInLocalStorage(iceCream)}
+                        className="btn btn-primary"
+                      >
+                        Buy Now
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -222,7 +141,7 @@ function Home() {
             </div>
           </div>
           <div className="seemore_bt">
-            <a href="#">See More</a>
+            <a href="/products">See More</a>
           </div>
         </div>
       </div>
@@ -241,7 +160,7 @@ function Home() {
           <div className="services_section_2">
             <div className="row">
               {services.map((service, index) => (
-                <div className="col-12 col-sm-6 col-md-4" key={index}>
+                <div className="col-12 col-sm-6 col-sm-4" key={index}>
                   <div className="services_box">
                     <h5 className="tasty_text">
                       <span className="icon_img">
@@ -256,7 +175,7 @@ function Home() {
             </div>
           </div>
           <div className="seemore_bt">
-            <a href="#">Read More</a>
+            <a href="/products">Read More</a>
           </div>
         </div>
       </div>

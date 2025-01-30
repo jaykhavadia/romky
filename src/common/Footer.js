@@ -9,7 +9,7 @@ function Footer() {
             <div className="col-md-4">
               <div className="contact_main">
                 <h1 className="contact_taital">Contact Us</h1>
-                <form action="/action_page.php">
+                <form action="/">
                   <div className="form-group">
                     <input
                       type="text"
@@ -45,7 +45,7 @@ function Footer() {
                   </div>
                 </form>
                 <div className="main_bt">
-                  <a href="#">SEND</a>
+                  <a href="/">SEND</a>
                 </div>
               </div>
             </div>
